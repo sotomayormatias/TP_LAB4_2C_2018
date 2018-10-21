@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,8 @@ import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private builder: FormBuilder) { }
+  constructor(private builder: FormBuilder,
+    private router: Router) { }
 
   email = new FormControl('', [
     Validators.required,
@@ -25,8 +27,8 @@ export class LoginComponent implements OnInit {
   });
 
   Ingresar(){
-    alert("Usuario Logueado");
-    console.log(this.registroForm.get('email').value); 
+    console.log(this.registroForm.get('email').value);
+    this.router.navigate(['/Principal']);
   }
 
   ngOnInit(){}
