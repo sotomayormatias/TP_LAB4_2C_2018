@@ -9,6 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { RuteoModule } from "./ruteo/ruteo.module";
 
+import { ServicioGeneralService } from './servicios/servicio-general.service';
+import { ServicioEmpleadoService } from "./servicios/servicio-empleado.service";
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,11 @@ import { RuteoModule } from "./ruteo/ruteo.module";
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RuteoModule
+    RuteoModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ServicioGeneralService,
+    ServicioEmpleadoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
