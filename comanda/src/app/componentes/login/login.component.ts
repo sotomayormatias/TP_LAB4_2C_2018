@@ -9,6 +9,7 @@ import { ServicioEmpleadoService } from "../../servicios/servicio-empleado.servi
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  miServicioEmpleado: ServicioEmpleadoService;
 
   constructor(private builder: FormBuilder,
     private router: Router,
@@ -16,7 +17,6 @@ export class LoginComponent implements OnInit {
     this.miServicioEmpleado = servicioEmpleado;
   }
 
-  miServicioEmpleado: ServicioEmpleadoService;
 
   email = new FormControl('', [
     Validators.required,
@@ -33,14 +33,13 @@ export class LoginComponent implements OnInit {
   });
 
   Ingresar() {
-    // console.log(this.registroForm.get('email').value);
     let usuario = this.registroForm.get('email').value;
     let clave = this.registroForm.get('clave').value;
-    // let response: any = this.miServicioEmpleado.loguearUsuario('Sesion', {usuario, clave});
-    // console.log(response);
     this.miServicioEmpleado.loguearUsuario('Sesion', {usuario, clave})
     .then(data => {
       if(data && data.token){
+        console.log(data);
+        sessionStorage.setItem("sesion", JSON.stringify(data.datos));
         this.router.navigate(['/Principal']);
       }
       else {

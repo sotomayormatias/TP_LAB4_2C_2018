@@ -1,23 +1,33 @@
+// modulos
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
-import { AppComponent } from './app.component';
-import { LoginComponent } from './componentes/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PrincipalComponent } from './componentes/principal/principal.component';
+import { HttpModule } from '@angular/http';
 import { RuteoModule } from "./ruteo/ruteo.module";
 
+// componentes
+import { AppComponent } from './app.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { PrincipalComponent } from './componentes/principal/principal.component';
+import { ListadoComponent } from './componentes/listado/listado.component';
+
+// servicios
 import { ServicioGeneralService } from './servicios/servicio-general.service';
 import { ServicioEmpleadoService } from "./servicios/servicio-empleado.service";
-import { HttpModule } from '@angular/http';
+import { ServicioMenuService } from "./servicios/servicio-menu.service";
+import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
+import { CarouselComponent } from './componentes/carousel/carousel.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    ListadoComponent,
+    BienvenidoComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +36,11 @@ import { HttpModule } from '@angular/http';
     RuteoModule,
     HttpModule
   ],
-  providers: [ServicioGeneralService,
-    ServicioEmpleadoService],
+  providers: [
+    ServicioGeneralService,
+    ServicioEmpleadoService,
+    ServicioMenuService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,16 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comida of listado">
+        <td>{{comida.nombre}}</td>
+        <td>{{comida.precio}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

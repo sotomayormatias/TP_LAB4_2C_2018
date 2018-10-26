@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-
-  constructor() { }
+  usuarioLogueado: any;
+  constructor() {
+    this.usuarioLogueado = JSON.parse(sessionStorage.getItem("sesion"));
+    console.log(this.usuarioLogueado);
+  }
 
   ngOnInit() {
   }

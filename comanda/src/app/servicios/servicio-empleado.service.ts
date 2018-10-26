@@ -28,13 +28,7 @@ export class ServicioEmpleadoService {
   }
 
   public loguearUsuario(ruta, objeto:any) {
-    return this.miHttp.httpPostO(ruta, objeto)
-      .toPromise()
-      .then(data => {
-        return data;
-      }, err => {
-        console.log(err);
-      })
+    return this.miHttp.post(ruta, objeto);
   }
 
   public traerUnoPorUsuario(ruta, usuario) {
