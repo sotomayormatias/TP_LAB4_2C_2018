@@ -6,18 +6,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RuteoModule } from "./ruteo/ruteo.module";
 
+// servicios
+import { ServicioGeneralService } from './servicios/servicio-general.service';
+import { ServicioEmpleadoService } from "./servicios/servicio-empleado.service";
+import { ServicioMenuService } from "./servicios/servicio-menu.service";
+import { ServicioClienteService } from "./servicios/servicio-cliente.service";
+
 // componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { ListadoComponent } from './componentes/listado/listado.component';
-
-// servicios
-import { ServicioGeneralService } from './servicios/servicio-general.service';
-import { ServicioEmpleadoService } from "./servicios/servicio-empleado.service";
-import { ServicioMenuService } from "./servicios/servicio-menu.service";
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
 import { CarouselComponent } from './componentes/carousel/carousel.component';
+import { SeguimientoPedidoComponent } from './componentes/seguimiento-pedido/seguimiento-pedido.component';
+import { PrincipalClienteComponent } from './componentes/principal-cliente/principal-cliente.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { CarouselComponent } from './componentes/carousel/carousel.component';
     PrincipalComponent,
     ListadoComponent,
     BienvenidoComponent,
-    CarouselComponent
+    CarouselComponent,
+    SeguimientoPedidoComponent,
+    PrincipalClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import { CarouselComponent } from './componentes/carousel/carousel.component';
   providers: [
     ServicioGeneralService,
     ServicioEmpleadoService,
-    ServicioMenuService
+    ServicioMenuService,
+    ServicioClienteService
   ],
   bootstrap: [AppComponent]
 })

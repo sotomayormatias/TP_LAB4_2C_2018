@@ -1,0 +1,4 @@
+<div class="btn-group btn-matrix">
+  <button *ngFor="let mesa of listadoMesas" type="button" [disabled]="mesa.estado == ocupada"
+    class="btn btn-default" (click)="seleccionarMesa(mesa.idMesa)">Mesa {{ mesa.idMesa }}</button>
+</div>

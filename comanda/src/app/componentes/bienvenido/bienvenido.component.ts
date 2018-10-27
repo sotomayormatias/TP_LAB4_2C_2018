@@ -15,11 +15,10 @@ export class BienvenidoComponent implements OnInit {
   }
 
   ingresarEmpleado(){
-    console.log("hola");
     this.router.navigate(['/Login']);
   }
 
   ingresarCliente(){
-
+    this.router.navigate(['/Cliente']);
   }
 }
