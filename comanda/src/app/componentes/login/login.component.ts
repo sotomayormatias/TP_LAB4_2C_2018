@@ -10,6 +10,7 @@ import { ServicioEmpleadoService } from "../../servicios/servicio-empleado.servi
 })
 export class LoginComponent implements OnInit {
   miServicioEmpleado: ServicioEmpleadoService;
+  usuarioIncorrecto: boolean = false;
 
   constructor(private builder: FormBuilder,
     private router: Router,
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   ]);
 
   clave = new FormControl('', [
-    Validators.required
+    Validators.required,
+    Validators.minLength(4)
   ]);
 
   registroForm: FormGroup = this.builder.group({
@@ -43,7 +45,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/Principal']);
       }
       else {
-        alert("usuario o contraseña incorrectos");
+        this.usuarioIncorrecto = true;
       }
     });
   }

@@ -1,4 +1,50 @@
-<div class="btn-group btn-matrix">
-  <button *ngFor="let mesa of listadoMesas" type="button" [disabled]="mesa.estado == ocupada"
-    class="btn btn-default" (click)="seleccionarMesa(mesa.idMesa)">Mesa {{ mesa.idMesa }}</button>
+<div class="container">
+  <div class="titulo"><h1>Bienvenido a "LA COMANDA"</h1></div>
+  <div class="d-flex justify-content-center h-50">
+      <div class="card">
+        <div class="card-header">
+          <h3>Ingresar</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="registroForm" (ngSubmit)="seleccionarMesa()">
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Ingrese su nombre" [formControl]="nombre">
+  
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-utensils"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="código de mesa" [formControl]="codigoMesa">
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Llamar al mozo" class="btn btn-block login_btn" [disabled]="!registroForm.valid">
+            </div>
+          </form>
+        </div>
+        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+          <div *ngIf="nombre.errors.required">
+            Su nombre es obligatorio.
+          </div>
+        </div>
+        <div *ngIf="codigoMesa.invalid && (codigoMesa.dirty || codigoMesa.touched) && !(nombre.invalid && (nombre.dirty || nombre.touched))"
+         class="alert alert-danger">
+          <div *ngIf="codigoMesa.errors.required">
+            El código es obligatorio.
+          </div>
+          <div *ngIf="codigoMesa.errors.minlength">
+            El código debe tener al menos 5 caracteres.
+          </div>
+        </div>
+        <div *ngIf="mesaIncorrecta" class="alert alert-danger">
+          El código de mesa no existe.
+        </div>
+        <div *ngIf="mesaOcupada" class="alert alert-danger">
+          La mesa ingresada está ocupada.
+        </div>
+      </div>
+    </div>
 </div>

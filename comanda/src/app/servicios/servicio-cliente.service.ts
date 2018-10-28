@@ -12,4 +12,8 @@ export class ServicioClienteService {
         return data;
       });
   }
+
+  ocuparMesa(idMesa: number, estado: string){
+    this.miHttp.post("Mesas/Estado", {idMesa, estado});
+  }
 }

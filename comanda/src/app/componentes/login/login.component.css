@@ -5,7 +5,7 @@
 }
     
 .card{
-    height: 370px;
+    height: 270px;
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
@@ -83,5 +83,5 @@ input:focus{
 
 .alert{
     opacity: 0.8;
-    margin-top: 50px;
+    /* margin-top: 10px; */
 }

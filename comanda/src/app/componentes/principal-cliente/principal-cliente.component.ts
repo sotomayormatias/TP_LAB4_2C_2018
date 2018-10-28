@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ServicioClienteService } from "../../servicios/servicio-cliente.service";
 
 @Component({
@@ -10,15 +11,32 @@ export class PrincipalClienteComponent implements OnInit {
 
   listadoMesas: Array<any>;
   miServicioCliente: ServicioClienteService;
-  mesa: number;
+  mesaElegida: any;
+  mesaIncorrecta: boolean = false;
+  mesaOcupada: boolean = false;
 
-  constructor(servicioCliente: ServicioClienteService) {
+  constructor(private builder: FormBuilder,
+    servicioCliente: ServicioClienteService) {
     this.miServicioCliente = servicioCliente;
     this.traerMesas();
   }
 
   ngOnInit() {
   }
+
+  nombre = new FormControl('', [
+    Validators.required
+  ]);
+
+  codigoMesa = new FormControl('', [
+    Validators.required,
+    Validators.minLength(5)
+  ]);
+
+  registroForm: FormGroup = this.builder.group({
+    nombre: this.nombre,
+    codigoMesa: this.codigoMesa
+  });
 
   traerMesas() {
     this.miServicioCliente.traerMesas()
@@ -27,8 +45,19 @@ export class PrincipalClienteComponent implements OnInit {
       });
   }
 
-  seleccionarMesa(idMesa: number){
-    this.mesa = idMesa;
+  seleccionarMesa() {
+    this.mesaIncorrecta = false;
+    this.mesaOcupada = false;
+    this.mesaElegida = this.listadoMesas.find(mesa => mesa.codigo == this.codigoMesa.value);
+    if (!this.mesaElegida)
+      this.mesaIncorrecta = true;
+    else if (this.mesaElegida.estado != "cerrada")
+      this.mesaOcupada = true;
+    else
+      this.ocuparMesa();
   }
 
+  ocuparMesa() {
+    this.miServicioCliente.ocuparMesa(this.mesaElegida.id, "con cliente esperando pedido");
+  }
 }
