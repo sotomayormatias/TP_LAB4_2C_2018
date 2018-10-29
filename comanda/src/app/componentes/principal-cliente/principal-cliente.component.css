@@ -47,3 +47,8 @@ input:focus{
     opacity: 0.8;
     /* margin-top: 10px; */
 }
+
+img{
+    height: 400px;
+    border-radius: 20px;
+}

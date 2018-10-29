@@ -14,6 +14,7 @@ export class PrincipalClienteComponent implements OnInit {
   mesaElegida: any;
   mesaIncorrecta: boolean = false;
   mesaOcupada: boolean = false;
+  nombreUsuario: string; 
 
   constructor(private builder: FormBuilder,
     servicioCliente: ServicioClienteService) {
@@ -48,6 +49,7 @@ export class PrincipalClienteComponent implements OnInit {
   seleccionarMesa() {
     this.mesaIncorrecta = false;
     this.mesaOcupada = false;
+    this.nombreUsuario = this.registroForm.get('nombre').value;
     this.mesaElegida = this.listadoMesas.find(mesa => mesa.codigo == this.codigoMesa.value);
     if (!this.mesaElegida)
       this.mesaIncorrecta = true;

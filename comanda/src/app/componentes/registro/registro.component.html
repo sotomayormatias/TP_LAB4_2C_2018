@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3>Ingresar</h3>
+        <!-- <div class="d-flex justify-content-end social_icon">
+            <span><i class="fab fa-facebook-square"></i></span>
+            <span><i class="fab fa-google-plus-square"></i></span>
+            <span><i class="fab fa-twitter-square"></i></span>
+          </div> -->
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registroForm" (ngSubmit)="Ingresar()">
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="usuario" [formControl]="email">
+
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="contraseña" [formControl]="clave">
+          </div>
+          <div class="row align-items-center remember">
+            <input type="checkbox">Recordarme
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Login" class="btn float-right login_btn" [disabled]="!registroForm.valid">
+          </div>
+        </form>
+      </div>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+        <div *ngIf="email.errors.required">
+          El usuario es obligatorio.
+        </div>
+      </div>
+      <div *ngIf="clave.invalid && (clave.dirty || clave.touched) && !(email.invalid && (email.dirty || email.touched))"
+        class="alert alert-danger">
+        <div *ngIf="clave.errors.required">
+          La clave es obligatoria.
+        </div>
+        <div *ngIf="clave.errors.minlength">
+          La clave debe tener al menos 4 caracteres.
+        </div>
+      </div>
+      <div *ngIf="usuarioIncorrecto" class="alert alert-danger">
+        Usuario o contraseña incorrectos.
+      </div>
+      <!-- <div class="card-footer" *ngIf="!registroForm.valid">
+          
+        </div> -->
+    </div>
+  </div>
+</div>

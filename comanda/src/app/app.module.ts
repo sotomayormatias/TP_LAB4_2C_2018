@@ -21,6 +21,7 @@ import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.compone
 import { CarouselComponent } from './componentes/carousel/carousel.component';
 import { SeguimientoPedidoComponent } from './componentes/seguimiento-pedido/seguimiento-pedido.component';
 import { PrincipalClienteComponent } from './componentes/principal-cliente/principal-cliente.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { PrincipalClienteComponent } from './componentes/principal-cliente/princ
     BienvenidoComponent,
     CarouselComponent,
     SeguimientoPedidoComponent,
-    PrincipalClienteComponent
+    PrincipalClienteComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
