@@ -10,7 +10,7 @@
 				</div> -->
 			</div>
 			<div class="card-body">
-				<form [formGroup]="registroForm" (ngSubmit)="Ingresar()">
+				<form [formGroup]="loginForm" (ngSubmit)="Ingresar()">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -28,7 +28,7 @@
 						<input type="checkbox">Recordarme
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn" [disabled]="!registroForm.valid">
+						<input type="submit" value="Login" class="btn float-right login_btn" [disabled]="!loginForm.valid">
 					</div>
 				</form>
 			</div>
@@ -49,7 +49,7 @@
 			<div *ngIf="usuarioIncorrecto" class="alert alert-danger">
 				Usuario o contraseña incorrectos.
 			</div>
-			<!-- <div class="card-footer" *ngIf="!registroForm.valid">
+			<!-- <div class="card-footer" *ngIf="!loginForm.valid">
 				
 			</div> -->
 		</div>

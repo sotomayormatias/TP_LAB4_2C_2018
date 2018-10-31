@@ -2,21 +2,38 @@
   <div class="d-flex justify-content-center h-100">
     <div class="card">
       <div class="card-header">
-        <h3>Ingresar</h3>
-        <!-- <div class="d-flex justify-content-end social_icon">
-            <span><i class="fab fa-facebook-square"></i></span>
-            <span><i class="fab fa-google-plus-square"></i></span>
-            <span><i class="fab fa-twitter-square"></i></span>
-          </div> -->
+        <h3>Registrar</h3>
       </div>
       <div class="card-body">
-        <form [formGroup]="registroForm" (ngSubmit)="Ingresar()">
+        <form [formGroup]="registroForm" (ngSubmit)="Registrar()">
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="usuario" [formControl]="email">
-
+            <input type="text" class="form-control" placeholder="usuario" [formControl]="usuario">
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="nombre" [formControl]="nombre">
+          </div>
+          <div class="input-group form-group">
+            <select class="form-control" [formControl]="estado" required>
+              <option value="" hidden disabled>Seleccione un estado</option>
+              <option>activo</option>
+              <option>suspendido</option>
+            </select>
+          </div>
+          <div class="input-group form-group">
+            <select class="form-control" [formControl]="perfil" required>
+              <option value="" hidden disabled>Seleccione un perfil</option>
+              <option>bartender</option>
+              <option>candy</option>
+              <option>cervecero</option>
+              <option>cocinero</option>
+              <option>mozo</option>
+            </select>
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">
@@ -24,20 +41,23 @@
             </div>
             <input type="password" class="form-control" placeholder="contraseña" [formControl]="clave">
           </div>
-          <div class="row align-items-center remember">
-            <input type="checkbox">Recordarme
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="repetir contraseña" [formControl]="copiaClave">
           </div>
           <div class="form-group">
-            <input type="submit" value="Login" class="btn float-right login_btn" [disabled]="!registroForm.valid">
+            <input type="submit" value="Registrar" class="btn float-right login_btn" [disabled]="!registroForm.valid">
           </div>
         </form>
       </div>
-      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-        <div *ngIf="email.errors.required">
+      <div *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)" class="alert alert-danger">
+        <div *ngIf="usuario.errors.required">
           El usuario es obligatorio.
         </div>
       </div>
-      <div *ngIf="clave.invalid && (clave.dirty || clave.touched) && !(email.invalid && (email.dirty || email.touched))"
+      <div *ngIf="clave.invalid && (clave.dirty || clave.touched) && !(usuario.invalid && (usuario.dirty || usuario.touched))"
         class="alert alert-danger">
         <div *ngIf="clave.errors.required">
           La clave es obligatoria.
@@ -46,12 +66,6 @@
           La clave debe tener al menos 4 caracteres.
         </div>
       </div>
-      <div *ngIf="usuarioIncorrecto" class="alert alert-danger">
-        Usuario o contraseña incorrectos.
-      </div>
-      <!-- <div class="card-footer" *ngIf="!registroForm.valid">
-          
-        </div> -->
     </div>
   </div>
 </div>

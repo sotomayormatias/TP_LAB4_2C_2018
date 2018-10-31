@@ -29,14 +29,14 @@ export class LoginComponent implements OnInit {
     Validators.minLength(4)
   ]);
 
-  registroForm: FormGroup = this.builder.group({
+  loginForm: FormGroup = this.builder.group({
     email: this.email,
     clave: this.clave
   });
 
   Ingresar() {
-    let usuario = this.registroForm.get('email').value;
-    let clave = this.registroForm.get('clave').value;
+    let usuario = this.loginForm.get('email').value;
+    let clave = this.loginForm.get('clave').value;
     this.miServicioEmpleado.loguearUsuario('Sesion', {usuario, clave})
     .then(data => {
       if(data && data.token){
