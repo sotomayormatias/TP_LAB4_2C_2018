@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <form [formGroup]="registroForm" (ngSubmit)="Registrar()">
-          <div class="input-group form-group">
+          <div class="input-group form-group has-error">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
@@ -55,15 +55,6 @@
       <div *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)" class="alert alert-danger">
         <div *ngIf="usuario.errors.required">
           El usuario es obligatorio.
-        </div>
-      </div>
-      <div *ngIf="clave.invalid && (clave.dirty || clave.touched) && !(usuario.invalid && (usuario.dirty || usuario.touched))"
-        class="alert alert-danger">
-        <div *ngIf="clave.errors.required">
-          La clave es obligatoria.
-        </div>
-        <div *ngIf="clave.errors.minlength">
-          La clave debe tener al menos 4 caracteres.
         </div>
       </div>
     </div>

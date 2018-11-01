@@ -84,3 +84,14 @@ input:focus{
     opacity: 0.8;
     /* margin-top: 10px; */
 }
+
+
+/*Estilos validacion*/
+
+.ng-dirty.ng-invalid:not(form){
+    border: 2px solid #f10808;
+}
+
+.ng-dirty.ng-valid:not(form){
+    border: 2px solid #1bf807;
+}

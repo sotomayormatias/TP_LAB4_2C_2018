@@ -58,7 +58,7 @@ export class RegistroComponent implements OnInit {
   }
 
   Registrar(){
-    alert("Usuario Registrado");
+    
     console.log(this.registroForm.get('usuario').value); 
   }
 
