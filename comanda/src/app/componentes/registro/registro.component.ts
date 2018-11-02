@@ -47,19 +47,35 @@ export class RegistroComponent implements OnInit {
     Validators.required,
     copiaClave
   ]);
+  
+  captcha = new FormControl('', [
+    Validators.required
+  ]);
 
   registroForm: FormGroup = this.builder.group({
     usuario: this.usuario,
+    nombre: this.nombre,
+    estado: this.estado,
+    perfil: this.perfil,
     clave: this.clave,
     copiaClave: this.copiaClave,
+    captcha: this.captcha
   });
 
   ngOnInit() {
   }
 
-  Registrar(){
-    
-    console.log(this.registroForm.get('usuario').value); 
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+  }
+
+  Registrar() {
+    let usuario = this.registroForm.get('usuario').value;
+    let nombre = this.registroForm.get('nombre').value;
+    let estado = this.registroForm.get('estado').value;
+    let perfil = this.registroForm.get('perfil').value;
+    let clave = this.registroForm.get('clave').value;
+    // console.log(this.registroForm.get('usuario').value);
   }
 
 }

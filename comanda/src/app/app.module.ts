@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RuteoModule } from "./ruteo/ruteo.module";
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 // servicios
 import { ServicioGeneralService } from './servicios/servicio-general.service';
@@ -41,7 +43,9 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     FormsModule,
     ReactiveFormsModule,
     RuteoModule,
-    HttpModule
+    HttpModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
   providers: [
     ServicioGeneralService,
