@@ -31,6 +31,11 @@ export class ServicioEmpleadoService {
     return this.miHttp.post(ruta, objeto);
   }
 
+  
+  public registrarUsuario(ruta, objeto:any) {
+    return this.miHttp.post(ruta, objeto);
+  }
+
   public traerUnoPorUsuario(ruta, usuario) {
     return this.miHttp.httpGetO(ruta)
       .toPromise()

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ServicioEmpleadoService } from "../../servicios/servicio-empleado.service";
 
 function copiaClave(input: FormControl) {
 
@@ -18,8 +19,12 @@ function copiaClave(input: FormControl) {
 })
 
 export class RegistroComponent implements OnInit {
+  miServicioEmpleado: ServicioEmpleadoService;
 
-  constructor(private builder: FormBuilder) { }
+  constructor(private builder: FormBuilder,
+    servicioEmpleado: ServicioEmpleadoService) {
+      this.miServicioEmpleado = servicioEmpleado;
+     }
 
   usuario = new FormControl('', [
     Validators.required,
@@ -75,7 +80,22 @@ export class RegistroComponent implements OnInit {
     let estado = this.registroForm.get('estado').value;
     let perfil = this.registroForm.get('perfil').value;
     let clave = this.registroForm.get('clave').value;
-    // console.log(this.registroForm.get('usuario').value);
+    
+    this.miServicioEmpleado.registrarUsuario('Empleados', {usuario, nombre, estado, perfil, clave})
+    .then(data => {
+      if(data.ultimoIdGrabado > 0){
+        this.MensajeRegistro();
+        this.registroForm.reset();
+      }
+    });
+  }
+
+  MensajeRegistro() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function () {
+      x.className = x.className.replace("show", "");
+    }, 3000);
   }
 
 }
