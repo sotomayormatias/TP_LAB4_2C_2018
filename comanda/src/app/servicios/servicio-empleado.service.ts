@@ -58,4 +58,7 @@ export class ServicioEmpleadoService {
       })
   }
 
+  public atenderMesa(idMesa: number, estado: string){
+    return this.miHttp.post("Mesas/Estado", {idMesa, estado});
+  }
 }

@@ -1,5 +1,20 @@
 <div class="contenedor">
   <h1>Bienvenido {{ usuarioLogueado.nombre }} ({{ usuarioLogueado.perfil }}) </h1>
-  <app-listado></app-listado>
+  <div *ngIf="usuarioLogueado.perfil == 'mozo'">
+    <table>
+      <thead>
+        <tr>
+          <th>Mesa</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mesa of listadoMesas">
+          <td>{{mesa.id}}</td>
+          <td><button (click)="elegirMesa(mesa.id)">Elegir</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <app-listado></app-listado>
+  </div>
 </div>
-

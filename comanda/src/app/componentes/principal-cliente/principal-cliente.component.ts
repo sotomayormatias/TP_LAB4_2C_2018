@@ -40,7 +40,7 @@ export class PrincipalClienteComponent implements OnInit {
   });
 
   traerMesas() {
-    this.miServicioCliente.traerMesas()
+    this.miServicioCliente.traerMesas('todas')
       .then(data => {
         this.listadoMesas = data;
       });
@@ -60,6 +60,6 @@ export class PrincipalClienteComponent implements OnInit {
   }
 
   ocuparMesa() {
-    this.miServicioCliente.ocuparMesa(this.mesaElegida.id, "con cliente esperando pedido");
+    this.miServicioCliente.ocuparMesa(this.mesaElegida.id, "con cliente esperando atencion");
   }
 }

@@ -4,12 +4,15 @@ import { ServicioGeneralService } from './servicio-general.service';
 @Injectable()
 export class ServicioClienteService {
 
+  filtroMesa: Array<any>;
   constructor(public miHttp: ServicioGeneralService) { }
 
-  traerMesas(): Promise<Array<any>> {
+  traerMesas(estado: string): Promise<Array<any>> {
     return this.miHttp.get("Mesas")
       .then((data:Array<any>) => {
-        return data;
+        this.filtroMesa = data;
+        this.filtroMesa = this.filtroMesa.filter(data => estado == 'todas' || data.estado == estado);
+        return this.filtroMesa;
       });
   }
 
