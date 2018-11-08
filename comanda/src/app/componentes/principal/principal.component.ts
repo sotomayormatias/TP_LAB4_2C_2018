@@ -14,7 +14,7 @@ export class PrincipalComponent implements OnInit {
   listadoMesas: Array<any>;
 
   constructor(servicioCliente: ServicioClienteService,
-              servicioEmpleado: ServicioEmpleadoService) {
+    servicioEmpleado: ServicioEmpleadoService) {
     this.miServicioCliente = servicioCliente;
     this.miServicioEmpleado = servicioEmpleado;
     this.usuarioLogueado = JSON.parse(sessionStorage.getItem("sesion"));
@@ -31,11 +31,16 @@ export class PrincipalComponent implements OnInit {
       });
   }
 
-  elegirMesa(idMesa: number){
+  elegirMesa(idMesa: number) {
     this.miServicioEmpleado.atenderMesa(idMesa, 'con cliente esperando pedido')
-    .then(data => {
-      this.traerMesasEsperandoAtencion();
-    });
+      .then(data => {
+        this.traerMesasEsperandoAtencion();
+      });
+  }
+
+  generarPedido($event) {
+    // console.log(JSON.stringify($event[0]));
+    //TODO: generar el pedido con el detalle y el id de la mesa usando el servicio pedido
   }
 
 }

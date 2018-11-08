@@ -1,16 +1,28 @@
 <div class="container">
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let comida of listado">
-        <td>{{comida.nombre}}</td>
-        <td>{{comida.precio}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div *ngFor="let producto of listadoComida" class="producto comida">
+    <div class="descProducto">{{producto.nombre}} (${{producto.precio}})</div>
+    <button (click)="sumarAlPedido(producto.id)" class="btnCircle agregar">+</button>
+    <button (click)="restarAlPedido(producto.id)" class="btnCircle quitar">-</button>
+    <div class="cantidad" id="{{'cantidad_' + producto.id}}"></div>
+  </div>
+</div>
+<div class="container">
+  <div *ngFor="let producto of listadoBebida" class="producto bebida">
+    <div class="descProducto">{{producto.nombre}} (${{producto.precio}})</div>
+    <button (click)="sumarAlPedido(producto.id)" class="btnCircle agregar">+</button>
+    <button (click)="restarAlPedido(producto.id)" class="btnCircle quitar">-</button>
+    <div class="cantidad" id="{{'cantidad_' + producto.id}}"></div>
+  </div>
+</div>
+<div class="container">
+  <div *ngFor="let producto of listadoPostre" class="producto postre">
+    <div class="descProducto">{{producto.nombre}} (${{producto.precio}})</div>
+    <button (click)="sumarAlPedido(producto.id)" class="btnCircle agregar">+</button>
+    <button (click)="restarAlPedido(producto.id)" class="btnCircle quitar">-</button>
+    <div class="cantidad" id="{{'cantidad_' + producto.id}}"></div>
+  </div>
+</div>
+
+<div class="contenedorBoton">
+  <button [disabled]="!pedido.length" class="btn btn-block btn-primary" (click)="generarPedido()">Generar pedido</button>
 </div>

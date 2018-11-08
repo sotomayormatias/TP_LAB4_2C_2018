@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ServicioMenuService } from "../../servicios/servicio-menu.service";
 
 @Component({
@@ -8,21 +8,80 @@ import { ServicioMenuService } from "../../servicios/servicio-menu.service";
 })
 export class ListadoComponent implements OnInit {
   miServicioMenu: ServicioMenuService;
-  listado: Array<any>;
+  listadoComida: Array<any>;
+  listadoBebida: Array<any>;
+  listadoPostre: Array<any>;
+  pedido: Array<{ idProducto: number, cantidad: number }>;
+  @Output() cargarPedido = new EventEmitter();
 
   constructor(servicioMenu: ServicioMenuService) {
     this.miServicioMenu = servicioMenu;
-    this.traerComida();
+    this.traerProductos();
+    this.pedido = new Array();
   }
 
   ngOnInit() {
   }
 
-  traerComida() {
+  traerProductos() {
     this.miServicioMenu.traerProductos("comida")
-      .then(listadoComida => {
-        this.listado = listadoComida;
+      .then(listado => {
+        this.listadoComida = listado;
+      });
+
+    this.miServicioMenu.traerProductos("bebida")
+      .then(listado => {
+        this.listadoBebida = listado;
+      });
+
+    this.miServicioMenu.traerProductos("postre")
+      .then(listado => {
+        this.listadoPostre = listado;
       });
   }
 
+  sumarAlPedido(idPrd: number) {
+    let productoExistente = this.pedido.find(producto => producto.idProducto == idPrd);
+    if (productoExistente) {
+      productoExistente.cantidad++;
+    } else {
+      this.pedido.push({ idProducto: idPrd, cantidad: 1 });
+    }
+    this.sumarCantidad(idPrd);
+  }
+
+  restarAlPedido(idPrd: number) {
+    let productoExistente = this.pedido.find(producto => producto.idProducto == idPrd);
+    if (productoExistente) {
+      productoExistente.cantidad--;
+      if (productoExistente.cantidad == 0) {
+        let index: number = this.pedido.indexOf(productoExistente);
+        this.pedido.splice(index, 1);
+      }
+    }
+    this.restarCantidad(idPrd);
+  }
+
+  sumarCantidad(idPrd: number) {
+    let span = document.getElementById("cantidad_" + idPrd);
+    let cantidad: number = span.textContent == "" ? 0 : +span.textContent;
+    cantidad++;
+    span.textContent = cantidad + "";
+  }
+
+  restarCantidad(idPrd: number) {
+    let span = document.getElementById("cantidad_" + idPrd);
+    let cantidad: number = span.textContent == "" ? 0 : +span.textContent;
+    if (cantidad > 0)
+      cantidad--;
+
+    if (cantidad == 0)
+      span.textContent = "";
+    else
+      span.textContent = cantidad + "";
+  }
+
+  generarPedido(){
+    this.cargarPedido.emit(this.pedido);
+  }
 }

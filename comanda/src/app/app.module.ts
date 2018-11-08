@@ -13,6 +13,7 @@ import { ServicioGeneralService } from './servicios/servicio-general.service';
 import { ServicioEmpleadoService } from "./servicios/servicio-empleado.service";
 import { ServicioMenuService } from "./servicios/servicio-menu.service";
 import { ServicioClienteService } from "./servicios/servicio-cliente.service";
+import { ServicioPedidoService } from "./servicios/servicio-pedido.service";
 
 // componentes
 import { AppComponent } from './app.component';
@@ -51,7 +52,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     ServicioGeneralService,
     ServicioEmpleadoService,
     ServicioMenuService,
-    ServicioClienteService
+    ServicioClienteService,
+    ServicioPedidoService
   ],
   bootstrap: [AppComponent]
 })

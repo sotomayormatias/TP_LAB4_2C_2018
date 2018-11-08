@@ -11,7 +11,7 @@ export class ServicioMenuService {
     return this.miHttp.get("Productos")
       .then((data:Array<any>) => {
         this.filtrado = data;
-        this.filtrado = this.filtrado.filter(data => data.tipo === tipoComida);
+        this.filtrado = this.filtrado.filter(data => tipoComida == 'todos' || data.tipo === tipoComida);
         return this.filtrado;
       });
   }
