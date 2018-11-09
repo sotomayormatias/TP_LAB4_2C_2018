@@ -6,7 +6,7 @@ export class ServicioPedidoService {
 
   constructor(public miHttp: ServicioGeneralService) { }
 
-  public generarPedido(idMesa: number){
-    return this.miHttp.post("Pedidos", {idMesa});
+  public generarPedido(idMesa: number, pedido: any){
+    return this.miHttp.post("Pedidos", {idMesa, pedido});
   }
 }

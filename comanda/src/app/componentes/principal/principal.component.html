@@ -1,7 +1,7 @@
 <div class="contenedor">
   <h1>Bienvenido {{ usuarioLogueado.nombre }} ({{ usuarioLogueado.perfil }}) </h1>
   <div *ngIf="usuarioLogueado.perfil == 'mozo'">
-    <table>
+    <table *ngIf="!mesaElegida">
       <thead>
         <tr>
           <th>Mesa</th>
@@ -15,6 +15,9 @@
         </tr>
       </tbody>
     </table>
-    <app-listado (cargarPedido)="generarPedido($event)"></app-listado>
+    <div *ngIf="mesaElegida">
+      <h2>Mesa nº{{ mesaElegida }}</h2>
+      <app-listado (cargarPedido)="generarPedido($event)"></app-listado>
+    </div>
   </div>
 </div>
