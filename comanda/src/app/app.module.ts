@@ -7,6 +7,8 @@ import { HttpModule } from '@angular/http';
 import { RuteoModule } from "./ruteo/ruteo.module";
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { FileUploadModule } from 'primeng/fileupload';
+// import { Angular2Csv } from 'angular2-csv';
 
 // servicios
 import { ServicioGeneralService } from './servicios/servicio-general.service';
@@ -46,7 +48,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     RuteoModule,
     HttpModule,
     RecaptchaModule,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    FileUploadModule
   ],
   providers: [
     ServicioGeneralService,

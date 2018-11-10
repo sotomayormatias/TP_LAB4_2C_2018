@@ -19,11 +19,12 @@ export class PrincipalComponent implements OnInit {
   constructor(servicioCliente: ServicioClienteService,
     servicioEmpleado: ServicioEmpleadoService,
     servicioPedido: ServicioPedidoService) {
-    this.miServicioCliente = servicioCliente;
-    this.miServicioEmpleado = servicioEmpleado;
-    this.miServicioPedido = servicioPedido;
-    this.usuarioLogueado = JSON.parse(sessionStorage.getItem("sesion"));
-    this.traerMesasEsperandoAtencion();
+      this.listadoMesas = new Array<any>();
+      this.miServicioCliente = servicioCliente;
+      this.miServicioEmpleado = servicioEmpleado;
+      this.miServicioPedido = servicioPedido;
+      this.usuarioLogueado = JSON.parse(sessionStorage.getItem("sesion"));
+      this.traerMesasEsperandoAtencion();
   }
 
   ngOnInit() {
@@ -50,7 +51,36 @@ export class PrincipalComponent implements OnInit {
     .then(data => {
       console.log(data);
     });
-    //TODO: generar el pedido con el detalle y el id de la mesa usando el servicio pedido
   }
+
+
+  // data = [
+  //   {
+  //     name: "Test 1",
+  //     age: 13,
+  //     average: 8.2,
+  //     approved: true,
+  //     description: "using 'Content here, content here' "
+  //   },
+  //   {
+  //     name: 'Test 2',
+  //     age: 11,
+  //     average: 8.2,
+  //     approved: true,
+  //     description: "using 'Content here, content here' "
+  //   },
+  //   {
+  //     name: 'Test 4',
+  //     age: 10,
+  //     average: 8.2,
+  //     approved: true,
+  //     description: "using 'Content here, content here' "
+  //   },
+  // ];
+   
+  // new Angular2Csv(data, 'My Report');
+
+
+
 
 }

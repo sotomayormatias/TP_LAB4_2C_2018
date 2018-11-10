@@ -4,3 +4,14 @@
     background-color: darkred;
     text-align: center;
 }
+
+#panelPerfil{
+    margin-top: 40px;
+}
+
+#tabla{
+    width: 20%; 
+    margin: auto;
+    max-height: 400px;
+    overflow-y: scroll;
+}
