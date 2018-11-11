@@ -27,6 +27,8 @@ import { CarouselComponent } from './componentes/carousel/carousel.component';
 import { SeguimientoPedidoComponent } from './componentes/seguimiento-pedido/seguimiento-pedido.component';
 import { PrincipalClienteComponent } from './componentes/principal-cliente/principal-cliente.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { MozoComponent } from './componentes/mozo/mozo.component';
+import { GastronomiaComponent } from './componentes/gastronomia/gastronomia.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     CarouselComponent,
     SeguimientoPedidoComponent,
     PrincipalClienteComponent,
-    RegistroComponent
+    RegistroComponent,
+    MozoComponent,
+    GastronomiaComponent
   ],
   imports: [
     BrowserModule,

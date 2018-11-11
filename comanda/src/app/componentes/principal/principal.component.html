@@ -1,41 +1,11 @@
 <div class="contenedor">
-  <h1>Bienvenido {{ usuarioLogueado.nombre }} ({{ usuarioLogueado.perfil }}) </h1>
-  <div id="panelPerfil" *ngIf="usuarioLogueado.perfil == 'mozo'">
-    <div *ngIf="!mesaElegida && listadoMesas.length > 0">
-      <div>Adelante, elegí... estoy seguro de que atenderás</div>
-      <div id="tabla">
-        <table class="table table-hover">
-          <thead class="thead-dark">
-            <tr>
-              <th colspan="2">Mesas</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let mesa of listadoMesas">
-              <td>{{mesa.id}}</td>
-              <td><button (click)="elegirMesa(mesa.id)" class="btn btn-dark">Elegir</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div *ngIf="!mesaElegida && listadoMesas.length == 0">
-      <h3>No hay mesas para atender</h3>
-    </div>
-    <div *ngIf="mesaElegida">
-      <h2>Mesa nº{{ mesaElegida }}</h2>
-      <app-listado (cargarPedido)="generarPedido($event)"></app-listado>
-      <p-fileUpload name="foto" url="{{'http://localhost/backend_tp2_lab4/Mesas/SubirFoto/' + mesaElegida}}" multiple="multiple"
-        accept="image/*" maxFileSize="1000000">
-        <ng-template pTemplate="content">
-          <ul>
-            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-          </ul>
-        </ng-template>
-      </p-fileUpload>
-    </div>
-
+  <h1>Bienvenido/a {{ usuarioLogueado.nombre }} ({{ usuarioLogueado.perfil }}) </h1>
+  <div id="panelPerfil" *ngIf="esMozo">
+    <app-mozo></app-mozo>
     <!-- <angular2csv [data]="data" filename="test.csv" [options]="options"></angular2csv> -->
-
+  </div>
+  <div id="panelPerfil" *ngIf="esGastronomico">
+    <app-gastronomia [perfil]="usuarioLogueado.perfil"></app-gastronomia>
+    <!-- <angular2csv [data]="data" filename="test.csv" [options]="options"></angular2csv> -->
   </div>
 </div>

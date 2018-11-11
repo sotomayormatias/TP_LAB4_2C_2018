@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicioClienteService } from "../../servicios/servicio-cliente.service";
-import { ServicioEmpleadoService } from "../../servicios/servicio-empleado.service";
-import { ServicioPedidoService } from "../../servicios/servicio-pedido.service";
 
 @Component({
   selector: 'app-principal',
@@ -10,47 +7,20 @@ import { ServicioPedidoService } from "../../servicios/servicio-pedido.service";
 })
 export class PrincipalComponent implements OnInit {
   usuarioLogueado: any;
-  miServicioCliente: ServicioClienteService;
-  miServicioEmpleado: ServicioEmpleadoService;
-  miServicioPedido: ServicioPedidoService;
-  listadoMesas: Array<any>;
-  mesaElegida: number;
+  esGastronomico: boolean = false;
+  esMozo: boolean = false;
 
-  constructor(servicioCliente: ServicioClienteService,
-    servicioEmpleado: ServicioEmpleadoService,
-    servicioPedido: ServicioPedidoService) {
-      this.listadoMesas = new Array<any>();
-      this.miServicioCliente = servicioCliente;
-      this.miServicioEmpleado = servicioEmpleado;
-      this.miServicioPedido = servicioPedido;
+  constructor() {
       this.usuarioLogueado = JSON.parse(sessionStorage.getItem("sesion"));
-      this.traerMesasEsperandoAtencion();
+      this.determinarPerfil();
   }
 
   ngOnInit() {
   }
 
-  traerMesasEsperandoAtencion() {
-    this.miServicioCliente.traerMesas('con cliente esperando atencion')
-      .then(data => {
-        this.listadoMesas = data;
-      });
-  }
-
-  elegirMesa(idMesa: number) {
-    this.miServicioEmpleado.atenderMesa(idMesa, 'con cliente esperando pedido')
-      .then(data => {
-        this.mesaElegida = idMesa;
-        // this.traerMesasEsperandoAtencion();
-      });
-  }
-
-  generarPedido($event) {
-    console.log(JSON.stringify($event));
-    this.miServicioPedido.generarPedido(this.mesaElegida, JSON.stringify($event))
-    .then(data => {
-      console.log(data);
-    });
+  determinarPerfil(){
+    this.esGastronomico = 'bartender candy cervecero cocinero'.includes(this.usuarioLogueado.perfil);
+    this.esMozo = 'mozo'.includes(this.usuarioLogueado.perfil);
   }
 
 
