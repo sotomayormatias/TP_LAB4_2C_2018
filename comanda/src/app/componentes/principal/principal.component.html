@@ -3,9 +3,9 @@
   <div id="panelPerfil" *ngIf="esMozo">
     <app-mozo></app-mozo>
     <!-- <angular2csv [data]="data" filename="test.csv" [options]="options"></angular2csv> -->
+    <app-exportar-csv [nombreArchivo]="'Reporte'" [datosAExportar]="data" [cabecera]="cabecera"></app-exportar-csv>
   </div>
   <div id="panelPerfil" *ngIf="esGastronomico">
     <app-gastronomia [perfil]="usuarioLogueado.perfil"></app-gastronomia>
-    <!-- <angular2csv [data]="data" filename="test.csv" [options]="options"></angular2csv> -->
   </div>
 </div>

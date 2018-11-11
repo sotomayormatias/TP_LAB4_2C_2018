@@ -8,7 +8,7 @@ import { RuteoModule } from "./ruteo/ruteo.module";
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { FileUploadModule } from 'primeng/fileupload';
-// import { Angular2Csv } from 'angular2-csv';
+import {ChartModule} from 'primeng/chart';
 
 // servicios
 import { ServicioGeneralService } from './servicios/servicio-general.service';
@@ -29,6 +29,8 @@ import { PrincipalClienteComponent } from './componentes/principal-cliente/princ
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { MozoComponent } from './componentes/mozo/mozo.component';
 import { GastronomiaComponent } from './componentes/gastronomia/gastronomia.component';
+import { ExportarCsvComponent } from './componentes/exportar-csv/exportar-csv.component';
+import { PrincipalSocioComponent } from './componentes/principal-socio/principal-socio.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { GastronomiaComponent } from './componentes/gastronomia/gastronomia.comp
     PrincipalClienteComponent,
     RegistroComponent,
     MozoComponent,
-    GastronomiaComponent
+    GastronomiaComponent,
+    ExportarCsvComponent,
+    PrincipalSocioComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,8 @@ import { GastronomiaComponent } from './componentes/gastronomia/gastronomia.comp
     HttpModule,
     RecaptchaModule,
     RecaptchaFormsModule,
-    FileUploadModule
+    FileUploadModule,
+    ChartModule
   ],
   providers: [
     ServicioGeneralService,

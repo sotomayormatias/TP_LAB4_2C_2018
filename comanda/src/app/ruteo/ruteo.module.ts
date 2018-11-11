@@ -6,6 +6,7 @@ import { PrincipalComponent } from '../componentes/principal/principal.component
 import { BienvenidoComponent } from '../componentes/bienvenido/bienvenido.component';
 import { PrincipalClienteComponent } from "../componentes/principal-cliente/principal-cliente.component";
 import { RegistroComponent } from "../componentes/registro/registro.component";
+import { PrincipalSocioComponent } from "../componentes/principal-socio/principal-socio.component";
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
@@ -13,7 +14,8 @@ const MiRuteo = [
   { path: 'Login', component: LoginComponent },
   { path: 'Principal', component: PrincipalComponent },
   { path: 'Cliente', component: PrincipalClienteComponent },
-  { path: 'Registro', component: RegistroComponent }
+  { path: 'Registro', component: RegistroComponent },
+  { path: 'Socio', component: PrincipalSocioComponent}
 ];
 
 @NgModule({

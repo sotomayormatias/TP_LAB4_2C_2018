@@ -37,17 +37,20 @@ export class LoginComponent implements OnInit {
   Ingresar() {
     let usuario = this.loginForm.get('email').value;
     let clave = this.loginForm.get('clave').value;
-    this.miServicioEmpleado.loguearUsuario('Sesion', {usuario, clave})
-    .then(data => {
-      if(data && data.token){
-        console.log(data);
-        sessionStorage.setItem("sesion", JSON.stringify(data.datos));
-        this.router.navigate(['/Principal']);
-      }
-      else {
-        this.usuarioIncorrecto = true;
-      }
-    });
+    this.miServicioEmpleado.loguearUsuario('Sesion', { usuario, clave })
+      .then(data => {
+        if (data && data.token) {
+          console.log(data);
+          sessionStorage.setItem("sesion", JSON.stringify(data.datos));
+          if (data.datos.perfil == "socio")
+            this.router.navigate(['/Socio']);
+          else
+            this.router.navigate(['/Principal']);
+        }
+        else {
+          this.usuarioIncorrecto = true;
+        }
+      });
   }
 
   ngOnInit() { }

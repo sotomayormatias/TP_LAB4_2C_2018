@@ -1,0 +1,18 @@
+<div class="contenedor">
+  <h1>Bienvenido/a {{ usuarioLogueado.nombre }} ({{ usuarioLogueado.perfil }}) </h1>
+  <div class="graficoPie">
+    <h3>Ventas por tipo de producto</h3>
+    <div class="form-group">
+      <select [(ngModel)]="tipoData" (change)="refrescarGrafico()" class="form-control">
+        <option value="comidas">comidas</option>
+        <option value="bebidas">bebidas</option>
+        <option value="postres">postres</option>
+      </select>
+    </div>
+    <p-chart *ngIf="tipoData != ''" type="pie" [data]="dataGrafico" [options]="configGrafico"></p-chart>
+  </div>
+  <div class="graficoPie">
+    <h3>Productos por empleado</h3>
+    <p-chart type="pie" [data]="dataGraficoEmpleado" [options]="configGrafico"></p-chart>
+  </div>
+</div>
