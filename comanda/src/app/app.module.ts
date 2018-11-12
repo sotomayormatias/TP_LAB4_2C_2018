@@ -31,6 +31,7 @@ import { MozoComponent } from './componentes/mozo/mozo.component';
 import { GastronomiaComponent } from './componentes/gastronomia/gastronomia.component';
 import { ExportarCsvComponent } from './componentes/exportar-csv/exportar-csv.component';
 import { PrincipalSocioComponent } from './componentes/principal-socio/principal-socio.component';
+import { TiempoPedidoDirective } from './directivas/tiempo-pedido.directive';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { PrincipalSocioComponent } from './componentes/principal-socio/principal
     MozoComponent,
     GastronomiaComponent,
     ExportarCsvComponent,
-    PrincipalSocioComponent
+    PrincipalSocioComponent,
+    TiempoPedidoDirective
   ],
   imports: [
     BrowserModule,

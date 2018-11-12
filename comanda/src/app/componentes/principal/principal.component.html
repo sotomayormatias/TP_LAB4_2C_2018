@@ -1,5 +1,5 @@
 <div class="contenedor">
-  <h1>Bienvenido/a {{ usuarioLogueado.nombre }} ({{ usuarioLogueado.perfil }}) </h1>
+  <h1>Bienvenido/a {{ usuarioLogueado.nombre | uppercase }} ({{ usuarioLogueado.perfil }}) </h1>
   <div id="panelPerfil" *ngIf="esMozo">
     <app-mozo></app-mozo>
     <!-- <angular2csv [data]="data" filename="test.csv" [options]="options"></angular2csv> -->
