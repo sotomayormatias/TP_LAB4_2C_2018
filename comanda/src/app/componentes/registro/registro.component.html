@@ -39,7 +39,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input type="password" class="form-control" placeholder="contraseña" [formControl]="clave">
+            <input type="password" class="form-control" placeholder="contraseña" [formControl]="clave" appPassRobusta [password]="clave.value">
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">

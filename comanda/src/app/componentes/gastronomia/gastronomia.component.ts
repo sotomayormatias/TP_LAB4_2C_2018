@@ -37,7 +37,6 @@ export class GastronomiaComponent implements OnInit {
     this.miServicioPedido.traerPedidos(this.perfil, "en preparacion")
       .then(data => {
         this.listadoEnPreparacion = data;
-        debugger;
         this.listadoEnPreparacion.forEach(function(pedido) {
           let fechaInicio = new Date(pedido.momentoInicio).getTime();
           let fechaFin = new Date().getTime();

@@ -32,6 +32,7 @@ import { GastronomiaComponent } from './componentes/gastronomia/gastronomia.comp
 import { ExportarCsvComponent } from './componentes/exportar-csv/exportar-csv.component';
 import { PrincipalSocioComponent } from './componentes/principal-socio/principal-socio.component';
 import { TiempoPedidoDirective } from './directivas/tiempo-pedido.directive';
+import { PassRobustaDirective } from './directivas/pass-robusta.directive';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { TiempoPedidoDirective } from './directivas/tiempo-pedido.directive';
     GastronomiaComponent,
     ExportarCsvComponent,
     PrincipalSocioComponent,
-    TiempoPedidoDirective
+    TiempoPedidoDirective,
+    PassRobustaDirective
   ],
   imports: [
     BrowserModule,
