@@ -14,7 +14,7 @@ export class ServicioPedidoService {
   public traerPedidos(perfil: string, estado: string): Promise<Array<any>> {
     return this.miHttp.get("Pedidos")
       .then((data:Array<any>) => {
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         this.filtroPedido = data;
         this.filtroPedido = this.filtroPedido.filter(data => data.perfil == perfil && data.estado == estado);
         return this.filtroPedido;

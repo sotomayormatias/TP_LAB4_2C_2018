@@ -9,6 +9,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { FileUploadModule } from 'primeng/fileupload';
 import {ChartModule} from 'primeng/chart';
+import {TooltipModule} from 'primeng/tooltip';
 
 // servicios
 import { ServicioGeneralService } from './servicios/servicio-general.service';
@@ -33,6 +34,7 @@ import { ExportarCsvComponent } from './componentes/exportar-csv/exportar-csv.co
 import { PrincipalSocioComponent } from './componentes/principal-socio/principal-socio.component';
 import { TiempoPedidoDirective } from './directivas/tiempo-pedido.directive';
 import { PassRobustaDirective } from './directivas/pass-robusta.directive';
+import { TooltipDemoraDirective } from './directivas/tooltip-demora.directive';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { PassRobustaDirective } from './directivas/pass-robusta.directive';
     ExportarCsvComponent,
     PrincipalSocioComponent,
     TiempoPedidoDirective,
-    PassRobustaDirective
+    PassRobustaDirective,
+    TooltipDemoraDirective
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import { PassRobustaDirective } from './directivas/pass-robusta.directive';
     RecaptchaModule,
     RecaptchaFormsModule,
     FileUploadModule,
-    ChartModule
+    ChartModule,
+    TooltipModule
   ],
   providers: [
     ServicioGeneralService,

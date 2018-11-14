@@ -44,10 +44,10 @@ export class MozoComponent implements OnInit {
   }
 
   generarPedido($event) {
-    console.log(JSON.stringify($event));
+    // console.log(JSON.stringify($event));
     this.miServicioPedido.generarPedido(this.mesaElegida, JSON.stringify($event))
     .then(data => {
-      console.log(data);
+      // console.log(data);
     });
   }
 

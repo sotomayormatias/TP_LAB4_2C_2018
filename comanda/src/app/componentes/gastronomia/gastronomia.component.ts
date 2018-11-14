@@ -42,6 +42,7 @@ export class GastronomiaComponent implements OnInit {
           let fechaFin = new Date().getTime();
           let diferencia = (fechaFin - fechaInicio) / (1000 * 60);
           pedido.esDemorado = diferencia > pedido.tiempoEstimado;
+          pedido.demora = diferencia - pedido.tiempoEstimado;
         });
       });
   }

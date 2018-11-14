@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.miServicioEmpleado.loguearUsuario('Sesion', { usuario, clave })
       .then(data => {
         if (data && data.token) {
-          console.log(data);
+          // console.log(data);
           sessionStorage.setItem("sesion", JSON.stringify(data.datos));
           if (data.datos.perfil == "socio")
             this.router.navigate(['/Socio']);

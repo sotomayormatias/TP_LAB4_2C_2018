@@ -41,7 +41,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pedido of listadoEnPreparacion" [esDemorado]="pedido.esDemorado" appTiempoPedido>
+      <tr *ngFor="let pedido of listadoEnPreparacion" [esDemorado]="pedido.esDemorado" appTiempoPedido [tiempoDemora]="pedido.demora" appTooltipDemora>
         <td>{{pedido.idPedido}}</td>
         <td>{{pedido.producto}}</td>
         <td>{{pedido.cantidad}}</td>
