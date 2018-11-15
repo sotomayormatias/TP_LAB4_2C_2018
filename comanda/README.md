@@ -1,27 +1,32 @@
 # Comanda
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+Este proyecto se realizó en la materia Laboratorio IV de la carrera "Técnico Superior en Progragmación" en  UTN Facultad Regional Avellaneda. 
 
-## Development server
+## Pantalla inicial
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Al ingresar al sitio, se podrá entontrar con una pantalla de bienvenida en donde tendrá la opción de poder ingresar como Cliente (cualquier persona que se acerque al local para poder disfrutar de nuestros sevicios), como personal (cualquier persona que sea empleada del restaurante).
 
-## Code scaffolding
+## Cliente
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Al ingresar como cliente se le solicitará su nombre y el código que se encuentra en la mesa en la que eligió sentarse, al ingresar estos dos datos (obligatorios), podrá seleccionar el botón `llamar al mozo`, para que cualquiera de nuestros mozo pueda tomar nota del servicio que requiera.
 
-## Build
+## Empleado
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+En caso de ingresar como empleado, se le solicitará que ingrese su usuario y password (los cuales le fueron brindados al momento de contratarlo) para poder acceder a las pantallas que requiera su perfil.
 
-## Running unit tests
+### Mozo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Siendo mozo, podrá seleccionar la mesa que requiera de atención, y en ese momento podrá visualizar el menú para poder anotar el pedido de la mesa (El menú cuenta con precios en Pesos argentinos y en dolares).
 
-## Running end-to-end tests
+Se le permitirá seleccionar la cantidad necesaria de cada producto, y al finalizar deberá presionar el botón `generar pedido`. También podrá (de manera opcional), subir una foto de los comensales que se encuentran en la mesa.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Cocinero / Bartender / Candy / Chopperas
 
-## Further help
+Siendo de cualquiera de estos 4 perfiles, podrá visualizar los pedidos pendientes que le correspondan, los cuales al momento de elegirlos, deberá seleccionar el tiempo estimado que le llevará realizarlo.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+También podrá visualizar los pedidos que se encuentre realizando en el momento. Se le notificará cuando el pedido se encuentre retrasado, teniendo en cuenta el tiempo estimado de preparación determinado.
+
+### Socio
+Siendo Socio del restaurant, podrá tener acceso a cualquier pantalla a la que puedan acceder los demás perfiles, pudiendo modificar la información, tomar y cancelar pedidos.
+
+También tendrá acceso a un sector de gestión de empleados y platos, pudiendo dar de alta, modificar o dar de baja tanto empleados como platos.
