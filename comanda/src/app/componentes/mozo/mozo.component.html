@@ -20,7 +20,7 @@
   <h3>No hay mesas para atender</h3>
 </div>
 <div *ngIf="mesaElegida">
-  <h2>Mesa nº{{ mesaElegida }}</h2>
+  <h2>Mesa {{ mesaElegida | cardinal }}</h2>
   <app-listado (cargarPedido)="generarPedido($event)"></app-listado>
   <p-fileUpload name="foto" url="{{'http://localhost/backend_tp2_lab4/Mesas/SubirFoto/' + mesaElegida}}" multiple="multiple"
     accept="image/*" maxFileSize="1000000">
