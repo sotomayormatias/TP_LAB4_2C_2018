@@ -37,6 +37,7 @@ import { PassRobustaDirective } from './directivas/pass-robusta.directive';
 import { TooltipDemoraDirective } from './directivas/tooltip-demora.directive';
 import { CardinalPipe } from './pipes/cardinal.pipe';
 import { MonedaPipe } from './pipes/moneda.pipe';
+import { MulticolorPipe } from './pipes/multicolor.pipe';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { MonedaPipe } from './pipes/moneda.pipe';
     PassRobustaDirective,
     TooltipDemoraDirective,
     CardinalPipe,
-    MonedaPipe
+    MonedaPipe,
+    MulticolorPipe
   ],
   imports: [
     BrowserModule,

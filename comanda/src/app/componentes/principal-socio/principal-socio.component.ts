@@ -128,7 +128,7 @@ export class PrincipalSocioComponent implements OnInit {
     {
       nombre: "Juan",
       ventas: 34
-    },
+    }
   ];
 
   cabeceraCsv = ["Nombre", "Ventas"]
