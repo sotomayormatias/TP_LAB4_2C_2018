@@ -12,6 +12,7 @@ export class ListadoComponent implements OnInit {
   listadoBebida: Array<any>;
   listadoPostre: Array<any>;
   pedido: Array<{ idProducto: number, cantidad: number }>;
+  tipoMoneda: string = "peso";
   @Output() cargarPedido = new EventEmitter();
 
   constructor(servicioMenu: ServicioMenuService) {
@@ -81,7 +82,15 @@ export class ListadoComponent implements OnInit {
       span.textContent = cantidad + "";
   }
 
-  generarPedido(){
+  generarPedido() {
     this.cargarPedido.emit(this.pedido);
+  }
+
+  cambiarMoneda() {
+    debugger;
+    if (this.tipoMoneda == 'peso')
+      this.tipoMoneda = 'dolar';
+    else
+      this.tipoMoneda = 'peso';
   }
 }

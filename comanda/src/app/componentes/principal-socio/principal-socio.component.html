@@ -15,4 +15,6 @@
     <h3>Productos por empleado</h3>
     <p-chart type="pie" [data]="dataGraficoEmpleado" [options]="configGrafico"></p-chart>
   </div>
+  
+  <app-exportar-csv [nombreArchivo]="'Ventas por empleado'" [datosAExportar]="dataCsv" [cabecera]="cabeceraCsv"></app-exportar-csv>
 </div>

@@ -36,6 +36,7 @@ import { TiempoPedidoDirective } from './directivas/tiempo-pedido.directive';
 import { PassRobustaDirective } from './directivas/pass-robusta.directive';
 import { TooltipDemoraDirective } from './directivas/tooltip-demora.directive';
 import { CardinalPipe } from './pipes/cardinal.pipe';
+import { MonedaPipe } from './pipes/moneda.pipe';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { CardinalPipe } from './pipes/cardinal.pipe';
     TiempoPedidoDirective,
     PassRobustaDirective,
     TooltipDemoraDirective,
-    CardinalPipe
+    CardinalPipe,
+    MonedaPipe
   ],
   imports: [
     BrowserModule,

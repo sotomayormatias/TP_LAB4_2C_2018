@@ -104,6 +104,35 @@ export class PrincipalSocioComponent implements OnInit {
     }
   }
 
+  dataCsv = [
+    {
+      nombre: "Roberto",
+      ventas: 34
+    },
+    {
+      nombre: "Anibal",
+      ventas: 65
+    },
+    {
+      nombre: "Marcelo",
+      ventas: 12
+    },
+    {
+      nombre: "Carla",
+      ventas: 78
+    },
+    {
+      nombre: "Julieta",
+      ventas: 90
+    },
+    {
+      nombre: "Juan",
+      ventas: 34
+    },
+  ];
+
+  cabeceraCsv = ["Nombre", "Ventas"]
+  
   ngOnInit() {
   }
 
