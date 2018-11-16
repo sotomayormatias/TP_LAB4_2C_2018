@@ -85,3 +85,11 @@ input:focus{
     opacity: 0.8;
     /* margin-top: 10px; */
 }
+
+.contentCard{
+    padding: 150px 0;
+}
+
+#botoneraAccesoRapido{
+    text-align: center;
+}

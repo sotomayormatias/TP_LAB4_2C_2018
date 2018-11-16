@@ -29,6 +29,9 @@
   </div>
 
   <div class="contenedorBoton">
-    <button [disabled]="!pedido.length" class="btn btn-block btn-primary" (click)="generarPedido()">Generar pedido</button>
+    <button [disabled]="!(pedido.length && resultadoCaptcha)" class="btn btn-block btn-primary" (click)="generarPedido()">Generar pedido</button>
+    <span id="primerNumero">{{ primerNumero }}</span> + <span id="segundoNumero">{{ segundoNumero }}</span>
+    <input type="text" placeholder="resultado" [(ngModel)]="resultadoUsuario">
+    <button class="btn btn-secondary btn-sm" (click)="validarCaptcha()">Validar</button>
   </div>
 </div>

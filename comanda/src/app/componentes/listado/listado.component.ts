@@ -13,12 +13,18 @@ export class ListadoComponent implements OnInit {
   listadoPostre: Array<any>;
   pedido: Array<{ idProducto: number, cantidad: number }>;
   tipoMoneda: string = "peso";
+  primerNumero: number;
+  segundoNumero: number;
+  resultadoUsuario: number;
+  resultadoCaptcha: boolean = false;
   @Output() cargarPedido = new EventEmitter();
 
   constructor(servicioMenu: ServicioMenuService) {
     this.miServicioMenu = servicioMenu;
     this.traerProductos();
     this.pedido = new Array();
+    this.primerNumero = Math.floor((Math.random() * 10) + 1);
+    this.segundoNumero = Math.floor((Math.random() * 10) + 1);
   }
 
   ngOnInit() {
@@ -87,10 +93,13 @@ export class ListadoComponent implements OnInit {
   }
 
   cambiarMoneda() {
-    debugger;
     if (this.tipoMoneda == 'peso')
       this.tipoMoneda = 'dolar';
     else
       this.tipoMoneda = 'peso';
+  }
+
+  validarCaptcha() {
+    this.resultadoCaptcha = this.resultadoUsuario == (this.primerNumero + this.segundoNumero);
   }
 }

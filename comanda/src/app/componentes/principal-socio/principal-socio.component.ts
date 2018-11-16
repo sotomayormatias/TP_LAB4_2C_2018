@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-principal-socio',
@@ -15,7 +16,7 @@ export class PrincipalSocioComponent implements OnInit {
   configGrafico: any;
   tipoData: string = "";
 
-  constructor() {
+  constructor(private router: Router) {
     this.usuarioLogueado = JSON.parse(sessionStorage.getItem("sesion"));
 
     this.dataComidas = {
@@ -148,5 +149,9 @@ export class PrincipalSocioComponent implements OnInit {
         this.dataGrafico = this.dataPostres;
         break;
     }
+  }
+
+  redirigirRegistro(){
+    this.router.navigate(['/Registro']);
   }
 }

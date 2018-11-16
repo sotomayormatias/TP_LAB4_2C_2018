@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MonedaPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    debugger;
     if (args == 'peso')
       return '$' + value;
     else

@@ -14,7 +14,7 @@ export class ServicioGeneralService {
   constructor(public http: Http) { }
 
   public httpGetO(url: string): Observable<Response> {
-    console.log(this.api + url);
+    // console.log(this.api + url);
     return this.http.get(this.api + url)
       .map((res: Response) => res.json())
       .catch((err: any) => Observable.throw(err || 'Server error'));

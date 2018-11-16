@@ -53,6 +53,11 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  datosLogin(usuario: string){
+    this.email.setValue(usuario);
+    this.clave.setValue('1234');
+  }
+
   ngOnInit() { }
 
 }
