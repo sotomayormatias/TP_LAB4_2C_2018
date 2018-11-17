@@ -4,27 +4,27 @@
     <h4>Comidas</h4>
     <div *ngFor="let producto of listadoComida" class="producto comida">
       <div class="descProducto">{{producto.nombre}} ({{producto.precio | moneda:tipoMoneda}})</div>
-      <button (click)="sumarAlPedido(producto.id)" class="btnCircle agregar">+</button>
-      <button (click)="restarAlPedido(producto.id)" class="btnCircle quitar">-</button>
-      <div class="cantidad" id="{{'cantidad_' + producto.id}}"></div>
+      <button (click)="sumarAlPedido(producto.nombre)" class="btnCircle agregar">+</button>
+      <button (click)="restarAlPedido(producto.nombre)" class="btnCircle quitar">-</button>
+      <div class="cantidad" id="{{'cantidad_' + producto.nombre}}"></div>
     </div>
   </div>
   <div class="container">
     <h4>Bebidas</h4>
     <div *ngFor="let producto of listadoBebida" class="producto bebida">
       <div class="descProducto">{{producto.nombre}} ({{producto.precio | moneda:tipoMoneda}})</div>
-      <button (click)="sumarAlPedido(producto.id)" class="btnCircle agregar">+</button>
-      <button (click)="restarAlPedido(producto.id)" class="btnCircle quitar">-</button>
-      <div class="cantidad" id="{{'cantidad_' + producto.id}}"></div>
+      <button (click)="sumarAlPedido(producto.nombre)" class="btnCircle agregar">+</button>
+      <button (click)="restarAlPedido(producto.nombre)" class="btnCircle quitar">-</button>
+      <div class="cantidad" id="{{'cantidad_' + producto.nombre}}"></div>
     </div>
   </div>
   <div class="container">
     <h4>Postres</h4>
     <div *ngFor="let producto of listadoPostre" class="producto postre">
       <div class="descProducto">{{producto.nombre}} ({{producto.precio | moneda:tipoMoneda}})</div>
-      <button (click)="sumarAlPedido(producto.id)" class="btnCircle agregar">+</button>
-      <button (click)="restarAlPedido(producto.id)" class="btnCircle quitar">-</button>
-      <div class="cantidad" id="{{'cantidad_' + producto.id}}"></div>
+      <button (click)="sumarAlPedido(producto.nombre)" class="btnCircle agregar">+</button>
+      <button (click)="restarAlPedido(producto.nombre)" class="btnCircle quitar">-</button>
+      <div class="cantidad" id="{{'cantidad_' + producto.nombre}}"></div>
     </div>
   </div>
 
