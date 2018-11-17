@@ -26,7 +26,7 @@ Siendo de cualquiera de estos 4 perfiles, podrá visualizar los pedidos pendient
 
 También podrá visualizar los pedidos que se encuentre realizando en el momento. Se le notificará cuando el pedido se encuentre retrasado, teniendo en cuenta el tiempo estimado de preparación determinado.
 
-![cocinero](/src/assets/imagenes/la_comanda.png)
+![cocinero](/comanda/src/assets/imagenes/la_comanda.png)
 
 ### Socio
 Siendo Socio del restaurant, podrá tener acceso a cualquier pantalla a la que puedan acceder los demás perfiles, pudiendo modificar la información, tomar y cancelar pedidos.
