@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ServicioEmpleadoService } from "../../servicios/servicio-empleado.service";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { ServicioEmpleadoService } from "../../servicios/servicio-empleado.servi
 export class LoginComponent implements OnInit {
   miServicioEmpleado: ServicioEmpleadoService;
   usuarioIncorrecto: boolean = false;
+  cargando: boolean = false;
 
   constructor(private builder: FormBuilder,
     private router: Router,
@@ -35,10 +37,17 @@ export class LoginComponent implements OnInit {
   });
 
   Ingresar() {
+    this.cargando = true;
+    Observable.interval(3000).take(4).subscribe(() => this.IngresarUsuario());
+  }
+
+  IngresarUsuario() {
     let usuario = this.loginForm.get('email').value;
     let clave = this.loginForm.get('clave').value;
     this.miServicioEmpleado.loguearUsuario('Sesion', { usuario, clave })
       .then(data => {
+        
+        this.cargando = false;
         if (data && data.token) {
           // console.log(data);
           sessionStorage.setItem("sesion", JSON.stringify(data.datos));
@@ -53,7 +62,7 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  datosLogin(usuario: string){
+  datosLogin(usuario: string) {
     this.email.setValue(usuario);
     this.clave.setValue('1234');
   }

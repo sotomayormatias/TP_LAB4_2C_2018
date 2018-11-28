@@ -14,15 +14,16 @@ export class MozoComponent implements OnInit {
   miServicioPedido: ServicioPedidoService;
   listadoMesas: Array<any>;
   mesaElegida: number;
+  mostrarImagen: boolean = false;
 
   constructor(servicioCliente: ServicioClienteService,
     servicioEmpleado: ServicioEmpleadoService,
-    servicioPedido: ServicioPedidoService) { 
-      this.listadoMesas = new Array<any>();
-      this.miServicioCliente = servicioCliente;
-      this.miServicioEmpleado = servicioEmpleado;
-      this.miServicioPedido = servicioPedido;
-      this.traerMesasEsperandoAtencion();
+    servicioPedido: ServicioPedidoService) {
+    this.listadoMesas = new Array<any>();
+    this.miServicioCliente = servicioCliente;
+    this.miServicioEmpleado = servicioEmpleado;
+    this.miServicioPedido = servicioPedido;
+    this.traerMesasEsperandoAtencion();
   }
 
   ngOnInit() {
@@ -39,6 +40,7 @@ export class MozoComponent implements OnInit {
     this.miServicioEmpleado.atenderMesa(idMesa, 'con cliente esperando pedido')
       .then(data => {
         this.mesaElegida = idMesa;
+
         // this.traerMesasEsperandoAtencion();
       });
   }
@@ -46,9 +48,9 @@ export class MozoComponent implements OnInit {
   generarPedido($event) {
     // console.log(JSON.stringify($event));
     this.miServicioPedido.generarPedido(this.mesaElegida, JSON.stringify($event))
-    .then(data => {
-      // console.log(data);
-    });
+      .then(data => {
+        // console.log(data);
+      });
   }
 
 }

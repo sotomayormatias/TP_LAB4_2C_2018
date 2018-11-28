@@ -1,4 +1,7 @@
 <div class="container">
+	<div *ngIf="cargando" id="cargando">
+		<i class="fa fa-spinner fa-spin" style="font-size:50px; color:white"></i>
+	</div>
 	<div class="d-flex justify-content-center contentCard">
 		<div class="card">
 			<div class="card-header">
@@ -54,6 +57,7 @@
 			</div> -->
 		</div>
 	</div>
+
 	<div id="botoneraAccesoRapido">
 		<button type="button" class="btn btn-dark btn-sm" (click)="datosLogin('socio1')">Socio</button>
 		<button type="button" class="btn btn-dark btn-sm" (click)="datosLogin('mozo1')">Mozo</button>

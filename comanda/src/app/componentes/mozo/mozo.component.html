@@ -22,7 +22,16 @@
 <div *ngIf="mesaElegida">
   <h2>Mesa {{ mesaElegida | cardinal }}</h2>
   <app-listado (cargarPedido)="generarPedido($event)"></app-listado>
-  <p-fileUpload name="foto" url="{{'http://localhost/backend_tp2_lab4/Mesas/SubirFoto/' + mesaElegida}}" multiple="multiple"
+  <!-- <p-fileUpload name="foto" url="{{'http://localhost/backend_tp2_lab4/Mesas/SubirFoto/' + mesaElegida}}" multiple="multiple"
+    accept="image/*" maxFileSize="1000000">
+    <ng-template pTemplate="content">
+      <ul>
+        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+      </ul>
+    </ng-template>
+  </p-fileUpload> -->
+
+  <p-fileUpload name="foto" url="{{'https://comandasotomayor.000webhostapp.com/apirest_comanda/Mesas/SubirFoto/' + mesaElegida}}" multiple="multiple"
     accept="image/*" maxFileSize="1000000">
     <ng-template pTemplate="content">
       <ul>
@@ -30,4 +39,7 @@
       </ul>
     </ng-template>
   </p-fileUpload>
+
+  <!-- <img *ngIf="mostrarImagen" src="{{'http://localhost/backend_tp2_lab4/fotos/' + mesaElegida + '.jpg'}}"> -->
+  <!-- <img height="100px" *ngIf="mostrarImagen" src="{{'https://comandasotomayor.000webhostapp.com/apirest_comanda/fotos/' + mesaElegida + '.png'}}"> -->
 </div>

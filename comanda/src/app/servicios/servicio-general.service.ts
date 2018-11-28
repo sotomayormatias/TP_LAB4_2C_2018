@@ -9,8 +9,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ServicioGeneralService {
 
-  api: string = "http://localhost/backend_tp2_lab4/";
-  // api: string = "https://comandasotomayor.000webhostapp.com/apirest_comanda/";
+  // api: string = "http://localhost/backend_tp2_lab4/";
+  api: string = "https://comandasotomayor.000webhostapp.com/apirest_comanda/";
   constructor(public http: Http) { }
 
   public httpGetO(url: string): Observable<Response> {

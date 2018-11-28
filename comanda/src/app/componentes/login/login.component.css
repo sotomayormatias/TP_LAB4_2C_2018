@@ -93,3 +93,8 @@ input:focus{
 #botoneraAccesoRapido{
     text-align: center;
 }
+
+#cargando{
+    text-align: center;
+    padding-top: 70px;
+}
